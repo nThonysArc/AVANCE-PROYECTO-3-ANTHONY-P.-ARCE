@@ -1,0 +1,36 @@
+name: Integración y entrega continua
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    env:
+      nombres: Anthony Miguel
+      apellidos: Palomino Arce
+      edad: 20
+      version: "3.0"
+    
+    steps:
+      - name: Presentación
+        run: |
+          echo "Nombres: ${{ env.nombres }}"
+          echo "Apellidos: ${{ env.apellidos }}"
+          echo "Edad: ${{ env.edad }}"
+      
+      - name: Datos generales
+        run: |
+          echo "carrera de ingeniería de sistemas"
+      
+      - name: Variables de entorno secretas
+        run: |
+          echo "user: ${{ secrets.USER }}"
+          echo "password: ${{ secrets.PASSWORD }}"
+      
+      - name: Variables abiertas
+        run: |
+          echo "Versión de mi proyecto: ${{ env.version }}"
